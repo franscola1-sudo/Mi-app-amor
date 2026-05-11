@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <!-- 📱 IMPORTANTE PARA IPHONE -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Para el Amor de mi Vida ✨</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json">
+
+  <!-- 🍎 iOS APP MODE -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#f8b6c8">
+
+  <link rel="apple-touch-icon" href="img/icon-192.png">
+
+</head>
+
+<body>
+
+  <!-- 🎵 MUSICA -->
+  <audio id="music"></audio>
+
+  <!-- 💖 CORAZONES -->
+  <div class="corazones">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- 🌸 INICIO -->
+  <section id="inicio" class="pantalla activa">
+
+    <h1>Para el Amor de mi Vida ✨</h1>
+
+    <p class="subtitulo typewriter"
+       data-text="Una pequeña experiencia hecha especialmente para vos">
+    </p>
+
+    <input type="text" id="nombre" placeholder="Tu nombre...">
+
+    <button id="startBtn">Empecemos</button>
+
+  </section>
+
+  <!-- 💌 BIENVENIDA -->
+  <section id="bienvenida" class="pantalla">
+
+    <h2 id="saludo"></h2>
+
+    <p class="frase typewriter"
+       data-text="Voy a contarte una pequeña historia... la nuestra.">
+    </p>
+
+    <button id="continuarBtn">Continuar</button>
+
+  </section>
+
+  <!-- ❓ PREGUNTA 1 -->
+  <section id="pregunta1" class="pantalla">
+
+    <h2>¿Cómo nos conocimos?</h2>
+
+    <div class="opciones">
+
+      <button class="option">Porque soy una chaja de mierda</button>
+      <button class="option">Porque nos encontramos a la deriva</button>
+      <button class="option">En la plaza</button>
+      <button id="otroBtn">Otro</button>
+
+    </div>
+
+    <input type="text" id="otroInput" placeholder="Escribí tu respuesta..." style="display:none;">
+
+  </section>
+
+  <!-- 📅 CALENDARIO -->
+  <section id="calendario" class="pantalla">
+
+    <h2>¿Cuándo nos pusimos en pareja? 💖</h2>
+
+    <div class="calendar">
+
+      <div class="day">L</div>
+      <div class="day">M</div>
+      <div class="day">M</div>
+      <div class="day">J</div>
+      <div class="day">V</div>
+      <div class="day">S</div>
+      <div class="day">D</div>
+
+      <div></div><div></div><div></div><div></div>
+
+      <div class="date">1</div>
+      <div class="date">2</div>
+      <div class="date">3</div>
+      <div class="date">4</div>
+      <div class="date">5</div>
+
+      <div class="date correcta">6</div>
+
+    </div>
+
+    <p class="frase">
+      Hace aproximadamente 3 años, 6 meses y 183 semanas.
+    </p>
+
+  </section>
+
+  <!-- 💭 PREGUNTA 2 -->
+  <section id="pregunta2" class="pantalla">
+
+    <h2>¿Qué fue lo primero que pensaste cuando me viste? 💭</h2>
+
+    <p class="frase">
+      Conocí a la que hoy en día es mi novia, amor de mi vida y futura madre de mis hijos.
+    </p>
+
+    <input type="text" id="respuestaInput" placeholder="Escribí tu respuesta...">
+
+    <button id="respuestaBtn">Continuar</button>
+
+  </section>
+
+  <!-- 💖 FRASE 1 -->
+  <section id="frase1" class="pantalla">
+
+    <img src="img/foto1.jpg" class="imagen">
+
+    <p class="frase grande typewriter"
+       data-text="Esa persona llamada Cami, que me hizo entender lo que es el amor, la paciencia, la comprensión y el apoyo incondicional.">
+    </p>
+
+    <button id="fraseBtn">Seguir</button>
+
+  </section>
+
+  <!-- ✨ PREGUNTA 3 -->
+  <section id="pregunta3" class="pantalla">
+
+    <h2>¿Qué es lo que más te gusta de mí? ✨</h2>
+
+    <div class="opciones">
+
+      <button class="option2">Mi sonrisa</button>
+      <button class="option2">Mi forma de ser</button>
+      <button class="option2">Cómo te hago sentir</button>
+      <button class="option2">Todo 💌</button>
+
+    </div>
+
+    <p class="frase">
+      Hoy en día la considero una de las personas más importantes en mi vida.
+    </p>
+
+    <input type="text" id="otraRespuesta" placeholder="Escribí algo lindo ✨">
+
+  </section>
+
+  <!-- 💖 FRASE 2 -->
+  <section id="frase2" class="pantalla">
+
+    <img src="img/foto2.jpg" class="imagen">
+
+    <p class="frase grande typewriter"
+       data-text="Es mi lugar seguro, lugar donde puedo ser yo mismo sin miedo a ser juzgado.">
+    </p>
+
+    <button id="fraseBtn2">Seguir</button>
+
+  </section>
+
+  <!-- 💭 PREGUNTA 4 -->
+  <section id="pregunta4" class="pantalla">
+
+    <h2>¿Qué cambió desde que aparecí en tu vida?</h2>
+
+    <input type="text" id="respuestaInput2" placeholder="Escribí lo que sientas...">
+
+    <p class="frase">
+      La verdad que sin vos soy una gallina sin cabeza.
+    </p>
+
+    <button id="respuestaBtn2">Continuar</button>
+
+  </section>
+
+  <!-- 🎮 MINI JUEGO -->
+  <section id="minijuego" class="pantalla">
+
+    <h2>Armá nuestra frase 💌</h2>
+
+    <p class="frase">Tocá las palabras en el orden correcto ✨</p>
+
+    <div class="words-container">
+
+      <button class="word">Tú</button>
+      <button class="word">hogar</button>
+      <button class="word">eres</button>
+      <button class="word">mi</button>
+
+    </div>
+
+    <div id="resultadoFrase"></div>
+
+  </section>
+
+  <!-- 💖 FINAL -->
+  <section id="final" class="pantalla">
+
+    <h1>Fin ✨</h1>
+
+    <p class="frase grande typewriter"
+       data-text="Amo cada parte de vos y cada momento que compartimos juntos. Gracias por ser mi compañera de vida.">
+    </p>
+
+  </section>
+
+  <!-- 🔊 VOLUMEN -->
+  <div class="volume-control">
+
+    <span>🎵</span>
+
+    <input type="range" id="volumeSlider" min="0" max="1" step="0.01" value="0.4">
+
+  </div>
+
+  <!-- JS -->
+  <script src="script.js"></script>
+
+</body>
+</html>
