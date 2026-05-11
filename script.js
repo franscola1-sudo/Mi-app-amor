@@ -1,5 +1,4 @@
-const startBtn = document.getElementById("startBtn");
-const continuarBtn = document.getElementById("continuarBtn");
+const splash = document.getElementById("splash");
 
 const inicio = document.getElementById("inicio");
 const bienvenida = document.getElementById("bienvenida");
@@ -13,8 +12,11 @@ const pregunta4 = document.getElementById("pregunta4");
 const minijuego = document.getElementById("minijuego");
 const final = document.getElementById("final");
 
-const saludo = document.getElementById("saludo");
+const startBtn = document.getElementById("startBtn");
+const continuarBtn = document.getElementById("continuarBtn");
+
 const nombreInput = document.getElementById("nombre");
+const saludo = document.getElementById("saludo");
 
 const respuestaBtn = document.getElementById("respuestaBtn");
 const respuestaInput = document.getElementById("respuestaInput");
@@ -25,10 +27,10 @@ const fraseBtn2 = document.getElementById("fraseBtn2");
 const respuestaBtn2 = document.getElementById("respuestaBtn2");
 const respuestaInput2 = document.getElementById("respuestaInput2");
 
-const correcta = document.querySelector(".correcta");
-
 const otroBtn = document.getElementById("otroBtn");
 const otroInput = document.getElementById("otroInput");
+
+const correcta = document.querySelector(".correcta");
 
 const music = document.getElementById("music");
 const volumeSlider = document.getElementById("volumeSlider");
@@ -40,36 +42,63 @@ const canciones = [
   "music/song3.mp3"
 ];
 
-let indice = 0;
+let index = 0;
+let started = false;
 
-function reproducir(){
-  music.src = canciones[indice];
-  music.volume = volumeSlider.value;
-  music.play().catch(()=>{});
-}
-
-music.addEventListener("ended", () => {
-  indice = (indice + 1) % canciones.length;
-  reproducir();
-});
-
-/* 📱 FIX IPHONE AUDIO */
-function desbloquearAudio(){
+/* 🔓 desbloqueo iOS audio */
+function unlockAudio(){
   music.load();
-  music.play().then(()=>{
+  music.play().then(() => {
     music.pause();
     music.currentTime = 0;
   }).catch(()=>{});
 }
 
-/* 🔄 CAMBIO DE PANTALLA */
+/* 🎵 cargar música */
+function loadMusic(){
+  music.src = canciones[index];
+  music.volume = volumeSlider.value;
+  music.load();
+}
+
+/* ▶️ reproducir */
+function playMusic(){
+  music.play().catch(()=>{});
+}
+
+/* 🔁 siguiente canción */
+music.addEventListener("ended", () => {
+  index = (index + 1) % canciones.length;
+  loadMusic();
+  playMusic();
+});
+
+/* 🔊 volumen */
+volumeSlider.addEventListener("input", () => {
+  music.volume = volumeSlider.value;
+});
+
+/* 💌 SPLASH */
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    splash.style.transition = "0.8s ease";
+    splash.style.opacity = "0";
+
+    setTimeout(() => {
+      splash.style.display = "none";
+      inicio.classList.add("activa");
+    }, 800);
+
+  }, 2000);
+
+});
+
+/* 🔄 CAMBIO PANTALLA */
 function cambiar(actual, siguiente){
-
-  if(!actual || !siguiente) return;
-
-  actual.classList.remove("activa");
-  siguiente.classList.add("activa");
-
+  if(actual) actual.classList.remove("activa");
+  if(siguiente) siguiente.classList.add("activa");
 }
 
 /* 🚀 START */
@@ -84,69 +113,78 @@ startBtn.addEventListener("click", () => {
 
   saludo.innerText = `Hola, ${nombre} 💖`;
 
-  desbloquearAudio();
-  reproducir();
+  /* 🎵 activar música iOS */
+  if(!started){
+    unlockAudio();
+    loadMusic();
+    playMusic();
+    started = true;
+  }
 
   cambiar(inicio, bienvenida);
 
 });
 
-/* ➡️ SIGUIENTE */
+/* ➡️ CONTINUAR */
 continuarBtn.addEventListener("click", () => {
   cambiar(bienvenida, pregunta1);
 });
 
-/* ❓ OPCIONES */
-document.querySelectorAll(".option").forEach(b => {
-  b.addEventListener("click", () => {
+/* ❓ PREGUNTA 1 */
+document.querySelectorAll(".option").forEach(btn => {
+  btn.addEventListener("click", () => {
     cambiar(pregunta1, calendario);
   });
 });
 
-otroBtn?.addEventListener("click", () => {
-  otroInput.style.display = "block";
-});
+if(otroBtn){
+  otroBtn.addEventListener("click", () => {
+    otroInput.style.display = "block";
+    otroInput.focus();
+  });
+}
 
 /* 📅 CALENDARIO */
-correcta?.addEventListener("click", () => {
-  cambiar(calendario, pregunta2);
-});
+if(correcta){
+  correcta.addEventListener("click", () => {
+    cambiar(calendario, pregunta2);
+  });
+}
 
-/* 💭 PREGUNTAS */
+/* 💭 PREGUNTA 2 */
 respuestaBtn.addEventListener("click", () => {
   if(respuestaInput.value.trim() === "") return;
   cambiar(pregunta2, frase1);
 });
 
+/* 💖 FRASE 1 */
 fraseBtn.addEventListener("click", () => {
   cambiar(frase1, pregunta3);
 });
 
-document.querySelectorAll(".option2").forEach(b => {
-  b.addEventListener("click", () => {
+/* ✨ PREGUNTA 3 */
+document.querySelectorAll(".option2").forEach(btn => {
+  btn.addEventListener("click", () => {
     cambiar(pregunta3, frase2);
   });
 });
 
+/* 💖 FRASE 2 */
 fraseBtn2.addEventListener("click", () => {
   cambiar(frase2, pregunta4);
 });
 
+/* 💭 PREGUNTA 4 */
 respuestaBtn2.addEventListener("click", () => {
   if(respuestaInput2.value.trim() === "") return;
   cambiar(pregunta4, minijuego);
-});
-
-/* 🔊 VOLUMEN */
-volumeSlider.addEventListener("input", () => {
-  music.volume = volumeSlider.value;
 });
 
 /* 🎮 MINI JUEGO */
 const words = document.querySelectorAll(".word");
 const resultado = document.getElementById("resultadoFrase");
 
-const correctaFrase = ["Tú","eres","mi","hogar"];
+const fraseCorrecta = ["Tú", "hogar", "eres", "mi"];
 let user = [];
 
 words.forEach(w => {
@@ -157,9 +195,10 @@ words.forEach(w => {
 
     w.disabled = true;
 
-    if(user.length === correctaFrase.length){
+    if(user.length === fraseCorrecta.length){
 
-      if(user.join(" ") === correctaFrase.join(" ")){
+      if(user.join(" ") === fraseCorrecta.join(" ")){
+
         resultado.innerText = "✨ Tú eres mi hogar ✨";
 
         setTimeout(() => {
@@ -167,6 +206,7 @@ words.forEach(w => {
         }, 1200);
 
       } else {
+
         resultado.innerText = "❌ Intentá otra vez";
 
         setTimeout(() => {
@@ -174,6 +214,7 @@ words.forEach(w => {
           resultado.innerText = "";
           words.forEach(x => x.disabled = false);
         }, 1000);
+
       }
     }
   });

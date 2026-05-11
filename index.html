@@ -5,30 +5,39 @@
 
   <meta charset="UTF-8">
 
-  <!-- 📱 IMPORTANTE PARA IPHONE -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+  <title>Para el Amor de mi Vida ✨</title>
 
   <link rel="stylesheet" href="style.css">
 
   <!-- PWA -->
   <link rel="manifest" href="manifest.json">
 
-  <!-- 🍎 iOS APP MODE -->
+  <!-- 🍎 iOS -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="theme-color" content="#f8b6c8">
 
   <link rel="apple-touch-icon" href="img/icon-192.png">
 
-   <title>Para el Amor de mi Vida ✨</title>
-  
-
 </head>
 
 <body>
 
+  <!-- 💌 SPLASH -->
+  <section id="splash" class="splash">
+
+    <div class="carta">💌</div>
+
+    <p class="splash-text">
+      Preparando algo especial...
+    </p>
+
+  </section>
+
   <!-- 🎵 MUSICA -->
-  <audio id="music"></audio>
+  <audio id="music" preload="auto"></audio>
 
   <!-- 💖 CORAZONES -->
   <div class="corazones">
@@ -40,7 +49,7 @@
   </div>
 
   <!-- 🌸 INICIO -->
-  <section id="inicio" class="pantalla activa">
+  <section id="inicio" class="pantalla">
 
     <h1>Para el Amor de mi Vida ✨</h1>
 
@@ -77,6 +86,7 @@
       <button class="option">Porque soy una chaja de mierda</button>
       <button class="option">Porque nos encontramos a la deriva</button>
       <button class="option">En la plaza</button>
+
       <button id="otroBtn">Otro</button>
 
     </div>
@@ -123,10 +133,6 @@
 
     <h2>¿Qué fue lo primero que pensaste cuando me viste? 💭</h2>
 
-    <p class="frase">
-      Conocí a la que hoy en día es mi novia, amor de mi vida y futura madre de mis hijos.
-    </p>
-
     <input type="text" id="respuestaInput" placeholder="Escribí tu respuesta...">
 
     <button id="respuestaBtn">Continuar</button>
@@ -139,7 +145,7 @@
     <img src="img/foto1.jpg" class="imagen">
 
     <p class="frase grande typewriter"
-       data-text="Esa persona llamada Cami, que me hizo entender lo que es el amor, la paciencia, la comprensión y el apoyo incondicional.">
+       data-text="Esa persona llamada Cami, que me hizo entender lo que es el amor, la paciencia y el apoyo incondicional.">
     </p>
 
     <button id="fraseBtn">Seguir</button>
@@ -160,10 +166,6 @@
 
     </div>
 
-    <p class="frase">
-      Hoy en día la considero una de las personas más importantes en mi vida.
-    </p>
-
     <input type="text" id="otraRespuesta" placeholder="Escribí algo lindo ✨">
 
   </section>
@@ -174,7 +176,7 @@
     <img src="img/foto2.jpg" class="imagen">
 
     <p class="frase grande typewriter"
-       data-text="Es mi lugar seguro, lugar donde puedo ser yo mismo sin miedo a ser juzgado.">
+       data-text="Es mi lugar seguro, donde puedo ser yo mismo sin miedo a ser juzgado.">
     </p>
 
     <button id="fraseBtn2">Seguir</button>
@@ -201,7 +203,7 @@
 
     <h2>Armá nuestra frase 💌</h2>
 
-    <p class="frase">Tocá las palabras en el orden correcto ✨</p>
+    <p class="frase">Tocá las palabras en orden ✨</p>
 
     <div class="words-container">
 
@@ -236,7 +238,7 @@
 
   </div>
 
-  <!-- JS -->
+  <!-- ⚙️ JS -->
   <script src="script.js"></script>
 
 </body>

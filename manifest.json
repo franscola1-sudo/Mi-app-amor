@@ -1,11 +1,19 @@
 {
-  "name": "Para el Amor de mi Vida",
+  "name": "Para el Amor de mi Vida ✨",
   "short_name": "Mi Amor",
+  "description": "Una app romántica hecha con amor 💖",
+
   "start_url": "./index.html",
+  "scope": "./",
+
   "display": "standalone",
+  "orientation": "portrait",
+
   "background_color": "#0f0f14",
   "theme_color": "#f8b6c8",
-  "orientation": "portrait",
+
+  "lang": "es-AR",
+
   "icons": [
     {
       "src": "img/icon-192.png",
